@@ -13,7 +13,7 @@ class ConsoleApplication:
         print("4. Расчет ранга матрицы")
         print("5. Вывод текущего объекта матрицы")
         print("6. Выход")
-        print("7. Вывод матрицы по умолчанию")
+
     def run(self):
         while True:
             self.display()
@@ -50,8 +50,6 @@ class ConsoleApplication:
                     print("Матрица не задана.")
             elif choice == "6":
                 break
-            elif choice=='7':
-                self.matrix.set_default_matrix()
-                self.matrix.display_matrix()
+
             else:
                 print("Некорректный номер команды. Попробуйте еще раз.")

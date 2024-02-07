@@ -2,7 +2,7 @@ class SquareMatrix:
     def __init__(self, size : int):
         self.size = size
         self.matrix = [[0] * size for _ in range(size)]
-        self.set_default_matrix()
+
 
     def input_matrix(self):
         print("Введите элементы матрицы:")
@@ -52,6 +52,3 @@ class SquareMatrix:
                 submatrix.matrix[i - (i > row_index)][j - (j > col_index)] = self.matrix[i][j]
         return submatrix
 
-    def set_default_matrix(self):
-
-        pass
