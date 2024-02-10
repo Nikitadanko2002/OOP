@@ -21,6 +21,7 @@ class ConsoleApplication:
 
             if choice == "1":
                 size = int(input("Введите размер матрицы: "))
+                print("Введите элементы матрицы:")
                 self.matrix = SquareMatrix(size)
                 self.matrix.input_matrix()
             elif choice == "2":
@@ -43,8 +44,8 @@ class ConsoleApplication:
                 else:
                     print("Матрица не задана.")
             elif choice == "5":
+                print("Матрица:")
                 if self.matrix:
-
                     self.matrix.display_matrix()
                 else:
                     print("Матрица не задана.")
