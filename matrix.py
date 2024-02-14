@@ -61,10 +61,28 @@ class SquareMatrix:
                 Возвращает:
                 - int - значение ранга
         """
-        rank = self.__size
-        for row in self.matrix:
-            if all(element == 0 for element in row):
-                rank -= 1
+        rows = len(self.matrix)
+        cols = len(self.matrix[0])
+
+        rank = 0
+
+        for row in range(rows):
+            non_zero_found = False
+
+            for col in range(cols):
+                if self.matrix[row][col] != 0:
+                    non_zero_found = True
+                    break
+
+            if non_zero_found:
+                rank += 1
+
+                for r in range(row + 1, rows):
+                    multiplier = self.matrix[r][col] / self.matrix[row][col]
+
+                    for c in range(cols):
+                        self.matrix[r][c] -= multiplier * self.matrix[row][c]
+
         return rank
 
     def display_matrix(self):
