@@ -61,16 +61,17 @@ class SquareMatrix:
                 Возвращает:
                 - int - значение ранга
         """
-        rows = len(self.matrix)
-        cols = len(self.matrix[0])
+        matrix_copy = [row.copy() for row in self.matrix]
 
+        rows = len(matrix_copy)
+        cols = len(matrix_copy[0])
         rank = 0
 
         for row in range(rows):
             non_zero_found = False
 
             for col in range(cols):
-                if self.matrix[row][col] != 0:
+                if matrix_copy[row][col] != 0:
                     non_zero_found = True
                     break
 
@@ -78,10 +79,10 @@ class SquareMatrix:
                 rank += 1
 
                 for r in range(row + 1, rows):
-                    multiplier = self.matrix[r][col] / self.matrix[row][col]
+                    multiplier = matrix_copy[r][col] / matrix_copy[row][col]
 
                     for c in range(cols):
-                        self.matrix[r][c] -= multiplier * self.matrix[row][c]
+                        matrix_copy[r][c] -= multiplier * matrix_copy[row][c]
 
         return rank
 
