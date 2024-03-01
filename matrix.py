@@ -113,3 +113,5 @@ class SquareMatrix:
                     continue
                 submatrix.matrix[i - (i > row_index)][j - (j > col_index)] = self.matrix[i][j]
         return submatrix
+
+
